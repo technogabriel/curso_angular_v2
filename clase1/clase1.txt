@@ -1,0 +1,28 @@
+declarar variables css:
+con dos guiones => --NombreVariable
+*Para despues utilizarla, por ejemplo:
+
+.root{
+ --NombreVariable: propiedadVariable
+ 
+}
+.id{
+variable: var(--NombreVariable)
+}
+
+instalar Angular:
+npm install -g @angular/cli@latest
+
+nes - backend inspirado en Angular.
+
+transpilador = toma el codigo Ts y lo convierte a Js
+
+eventos en etiquetas, dentro de (), por ejemplo onClick:
+
+<button type="button" (click)="changeColor()">Change my Color</button>
+app.component.ts:
+
+changeColor() {
+    const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+    this.headerColor = randomColor;
+  }
