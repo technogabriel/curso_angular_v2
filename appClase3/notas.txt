@@ -1,0 +1,3 @@
+Directivas estructurales: *ngIf, *ngFor, *ngSwitch -> estructurales con *
+directivas atributos : -> con []
+Interpolacion : {{}}
