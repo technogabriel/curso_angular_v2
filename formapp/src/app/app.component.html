@@ -1,0 +1,41 @@
+<h2>Template driven form</h2>
+<form action="/my-handling-form-page" method="post">
+  <ul>
+    <li>
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="user_name" [ngModel]="name" />
+    </li>
+    <li>
+      <label for="mail">Correo electrónico:</label>
+      <input type="email" id="mail" name="user_mail" [ngModel]="email" />
+    </li>
+    <li>
+      <label for="msg">Mensaje:</label>
+      <textarea id="msg" name="user_message"[ngModel]="message" ></textarea>
+    </li>
+ 
+  </ul>
+  <input type="submit" value="enviar" onsubmit="onFormSubmit($event)" (click)="onFormSubmit($event)" >
+</form>
+
+<h2>Reactive form</h2>
+<form [formGroup]="reactiveForm" (ngSubmit)="onReactiveFormSubmit($event)" >
+  <ul>
+    <li>
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="user_name" formControlName="name" />
+    </li>
+    <li>
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" formControlName="email" />
+    </li>
+    <li>
+      <label for="msg">Mensaje:</label>
+      <textarea id="msg" name="user_message" formControlName="message"></textarea>
+    </li>
+    
+  </ul>
+  <input type="submit" value="enviar" [disabled]="!reactiveForm.valid">
+  <br>
+  <span *ngIf="!reactiveForm.pristine && reactiveForm.invalid">Revise los campos! </span>
+</form>
